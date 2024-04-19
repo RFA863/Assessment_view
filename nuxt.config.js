@@ -8,7 +8,7 @@ export default {
 
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
-    title: 'nuxt-cms',
+    title: 'Assessment',
     htmlAttrs: {
       lang: 'en'
     },
@@ -61,44 +61,44 @@ export default {
 
   auth: {
     strategies: {
-        local: {
-            token: {
-                property: 'token',
-                required: true,
-                type: 'Bearer'
-            },
-            user: {
-                property: 'user',
-                // autoFetch: true
-            },
-            endpoints: {
-                login: {
-                    url: '/api/admin/login',
-                    method: 'post'
-                },
-                logout: {
-                    url: '/api/admin/logout',
-                    method: 'post'
-                },
-                user: {
-                    url: '/api/admin/user',
-                    method: 'get'
-                }
-            }
+      local: {
+        token: {
+          property: 'token',
+          required: true,
+          type: 'Bearer'
+        },
+        user: {
+          property: 'user',
+          // autoFetch: true
+        },
+        endpoints: {
+          login: {
+            url: '/api/admin/login',
+            method: 'post'
+          },
+          logout: {
+            url: '/api/admin/logout',
+            method: 'post'
+          },
+          user: {
+            url: '/api/admin/user',
+            method: 'get'
+          }
         }
+      }
     },
     redirect: {
-        login: '/login',
-        logout: '/login',
-        callback: '/login',
-        home: '/admin/dashboard'
+      login: '/login',
+      logout: '/login',
+      callback: '/login',
+      home: '/admin/dashboard'
     }
   },
 
   // Axios module configuration: https://go.nuxtjs.dev/config-axios
   axios: {
     //baseURL: 'https://cms-api.appdev.my.id'
-	baseURL: 'http://127.0.0.1:8000'
+    baseURL: 'http://127.0.0.1:8000'
   },
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
@@ -116,5 +116,9 @@ export default {
     //     "@babel/transform-async-to-generator"
     //   ]
     // },
+  },
+
+  router: {
+    middleware: 'redirect'
   }
 }
