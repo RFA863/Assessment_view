@@ -57,43 +57,83 @@ export default {
     'nuxt-multiselect',
     //https://github.com/avil13/vue-sweetalert2
     'vue-sweetalert2/nuxt',
+    // https://www.npmjs.com/package/cookie-universal-nuxt
+    'cookie-universal-nuxt',
   ],
 
-  auth: {
-    strategies: {
-      local: {
-        token: {
-          property: 'token',
-          required: true,
-          type: 'Bearer'
-        },
-        user: {
-          property: 'user',
-          // autoFetch: true
-        },
-        endpoints: {
-          login: {
-            url: '/api/admin/login',
-            method: 'post'
-          },
-          logout: {
-            url: '/api/admin/logout',
-            method: 'post'
-          },
-          user: {
-            url: '/api/admin/user',
-            method: 'get'
-          }
-        }
-      }
-    },
-    redirect: {
-      login: '/login',
-      logout: '/login',
-      callback: '/login',
-      home: '/admin/dashboard'
-    }
-  },
+
+
+  // auth: {
+  //   strategies: {
+  //     local: {
+  //       token: {
+  //         property: 'token',
+  //         required: true,
+  //         type: 'Bearer'
+  //       },
+  //       user: {
+  //         property: 'user',
+  //         // autoFetch: true
+  //       },
+  //       endpoints: {
+  //         login: {
+  //           url: '/api/assessment/admin/login',
+  //           method: 'post'
+  //         },
+  //         // logout: {
+  //         //   url: '/api/admin/logout',
+  //         //   method: 'post'
+  //         // },
+  //         // user: {
+  //         //   url: '/api/admin/user',
+  //         //   method: 'get'
+  //         // }
+  //       }
+  //     }
+  //   },
+  //   // redirect: {
+  //   //   login: '/login',
+  //   //   logout: '/login',
+  //   //   callback: '/login',
+  //   //   home: '/admin/dashboard'
+  //   // }
+  // },
+
+  // authorization: {
+  //   strategies: {
+  //     local: {
+  //       token: {
+  //         property: 'token',
+  //         required: true,
+  //         type: 'Bearer'
+  //       },
+  //       user: {
+  //         property: 'user',
+  //         // autoFetch: true
+  //       },
+  //       endpoints: {
+  //         login: {
+  //           url: '/api/admin/login',
+  //           method: 'post'
+  //         },
+  //         logout: {
+  //           url: '/api/admin/logout',
+  //           method: 'post'
+  //         },
+  //         user: {
+  //           url: '/api/admin/user',
+  //           method: 'get'
+  //         }
+  //       }
+  //     }
+  //   },
+  //   redirect: {
+  //     login: '/login',
+  //     logout: '/login',
+  //     callback: '/login',
+  //     home: '/admin/dashboard'
+  //   }
+  // },
 
   // Axios module configuration: https://go.nuxtjs.dev/config-axios
   axios: {
