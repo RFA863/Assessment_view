@@ -1,6 +1,6 @@
 <template>
   <!-- Sidebar Menu -->
-  <nav class="mt-2">
+  <nav class="mt-2 overflow-hidden">
     <ul
       class="nav nav-pills nav-sidebar flex-column"
       data-widget="treeview"
@@ -18,21 +18,69 @@
         <h6>CONTENT</h6>
       </li>
 
-      <li class="nav-item">
-        <nuxt-link :to="{ name: 'admin-tag' }" class="nav-link">
+      <li class="nav-item" v-if="user.role === 'admin'">
+        <nuxt-link :to="{ name: 'assessment-admin-user' }" class="nav-link">
           <i class="nav-icon fas fa-tags"></i>
-          <p>Tags</p>
+          <p>User</p>
         </nuxt-link>
       </li>
 
-      <li class="nav-item">
-        <nuxt-link :to="{ name: 'admin-category' }" class="nav-link">
+      <li class="nav-item" v-if="user.role === 'admin'">
+        <nuxt-link :to="{ name: 'assessment-admin-opd' }" class="nav-link">
           <i class="nav-icon fas fa-folder"></i>
-          <p>Categories</p>
+          <p>Operator Perangkat Daerah</p>
         </nuxt-link>
       </li>
 
-      <li class="nav-item">
+      <li class="nav-item" v-if="user.role === 'opd'">
+        <nuxt-link :to="{ name: 'assessment-opd-baru' }" class="nav-link">
+          <i class="nav-icon fas fa-book-open"></i>
+          <p>Assessment Baru</p>
+        </nuxt-link>
+      </li>
+
+      <li class="nav-item" v-if="user.role === 'opd'">
+        <nuxt-link :to="{ name: 'assessment-opd-proses' }" class="nav-link">
+          <i class="nav-icon fas fa-book-open"></i>
+          <p>Assessment Proses</p>
+        </nuxt-link>
+      </li>
+
+      <li class="nav-item" v-if="user.role === 'opd'">
+        <nuxt-link :to="{ name: 'assessment-opd-selesai' }" class="nav-link">
+          <i class="nav-icon fas fa-book-open"></i>
+          <p>Assessment Selesai</p>
+        </nuxt-link>
+      </li>
+
+      <li class="nav-item" v-if="user.role === 'assessment'">
+        <nuxt-link :to="{ name: 'assessment-assessor-masuk' }" class="nav-link">
+          <i class="nav-icon fas fa-clone"></i>
+          <p>Assessment Masuk</p>
+        </nuxt-link>
+      </li>
+
+      <li class="nav-item" v-if="user.role === 'assessment'">
+        <nuxt-link
+          :to="{ name: 'assessment-assessor-proses' }"
+          class="nav-link"
+        >
+          <i class="nav-icon fas fa-clone"></i>
+          <p>Assessment Proses</p>
+        </nuxt-link>
+      </li>
+
+      <li class="nav-item" v-if="user.role === 'assessment'">
+        <nuxt-link
+          :to="{ name: 'assessment-assessor-selesai' }"
+          class="nav-link"
+        >
+          <i class="nav-icon fas fa-clone"></i>
+          <p>Assessment Selesai</p>
+        </nuxt-link>
+      </li>
+
+      <!-- <li class="nav-item">
         <nuxt-link :to="{ name: 'admin-post' }" class="nav-link">
           <i class="nav-icon fas fa-book-open"></i>
           <p>Posts</p>
@@ -62,14 +110,24 @@
           <i class="nav-icon fas fa-users"></i>
           <p>Users</p>
         </nuxt-link>
-      </li>
+      </li> -->
     </ul>
   </nav>
   <!-- /.sidebar-menu -->
 </template>
 
 <script>
-export default {};
+export default {
+  computed: {
+    user() {
+      return this.$cookies.get("user");
+    },
+  },
+
+  mounted() {
+    console.log(this.user);
+  },
+};
 </script>
 
 <style scoped>

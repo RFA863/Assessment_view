@@ -1,13 +1,16 @@
 <template>
   <div class="hold-transition sidebar-mini">
-    <div class="wrapper">
+    <div class="wrapper min-vh-100">
       <!-- Header -->
       <Header />
       <!-- /.Hader -->
 
-      <aside class="main-sidebar sidebar-dark-primary elevation-4">
-        <a to="/admin/dashboard" class="brand-link text-center">
-          <span class="brand-text font-weight-bold">CMS - ADMINISTRATOR</span>
+      <aside class="main-sidebar sidebar-dark-primary elevation-4 px-3">
+        <a to="/assessment" class="brand-link text-center">
+          <span class="brand-text font-weight-bold">
+            ASSESSMENT <br />
+            DASHBOARD
+          </span>
         </a>
 
         <!-- Sidebar -->
@@ -23,8 +26,8 @@
 
       <!-- <footer class="main-footer">
         <div class="float-right d-none d-sm-block"><b>Version</b> 1.0.0</div>
-        <strong>Copyright &copy; 2021 CMS - SANTRIKODING.</strong> All rights
-        reserved.
+        <strong>Copyright &copy; 2024 Assessment Diskominfo Kota Bogor.</strong>
+        All rights reserved.
       </footer> -->
       <aside class="control-sidebar control-sidebar-dark"></aside>
     </div>

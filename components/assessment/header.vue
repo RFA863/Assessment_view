@@ -35,7 +35,8 @@
             width="35"
             height="35"
           />
-          {{ user.name }} -->
+          -->
+          {{ user.name }}
         </a>
         <ul
           aria-labelledby="dropdownSubMenu1"
@@ -53,7 +54,7 @@
 export default {
   computed: {
     user() {
-      return this.$auth.user;
+      return this.$cookies.get("user");
     },
   },
 
@@ -61,10 +62,12 @@ export default {
     async logout() {
       //logout auth
       // await this.$auth.logout();
-
+      this.$cookies.remove("token");
+      this.$cookies.remove("role");
+      this.$cookies.remove("user");
       //redirect route login
       this.$router.push({
-        name: "login",
+        name: "assessment-login",
       });
     },
   },
