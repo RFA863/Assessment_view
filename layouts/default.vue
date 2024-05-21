@@ -24,11 +24,11 @@
 
 <style>
   body {
-    background-color: #ccdcec !important;
+    background-color: #fff !important;
   }
 
   .jumbotron {
-    background: #186399 !important;
+    background: #fff !important;
     color: white;
   }
 

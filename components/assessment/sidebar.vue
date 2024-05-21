@@ -7,74 +7,99 @@
       role="menu"
       data-accordion="false"
     >
-      <li class="nav-item">
+      <li class="nav-item dashboard">
         <nuxt-link :to="{ name: 'admin-dashboard' }" class="nav-link">
-          <i class="nav-icon fas fa-tachometer-alt"></i>
-          <p>Dashboard</p>
+          <i class="nav-icon fas fa-tachometer-alt text-light"></i>
+          <p class="text-white">Dashboard</p>
         </nuxt-link>
       </li>
 
-      <li class="nav-header">
+      <li class="nav-header text-light">
         <h6>CONTENT</h6>
+      </li>
+        
+      <!-- <li class="nav-item" v-if="user.role === 'admin'">
+        <nuxt-link :to="{ name: 'assessment-admin-user' }" class="nav-link">
+          <i  class="nav-icon fas fa-tags text-light"></i>
+          <p class="text-white">Helpdesk</p>
+        </nuxt-link>
+      </li> -->
+      
+      <li class="nav-item" v-if="user.role === 'admin'">
+        <nuxt-link :to="{ name: 'assessment-admin-user' }" class="nav-link">
+          <img src="~/assets/img/helpdesk.png" alt="">
+          <p class="text-white"  style="margin-left: 6px;">Helpdesk</p>
+        </nuxt-link>
       </li>
 
       <li class="nav-item" v-if="user.role === 'admin'">
         <nuxt-link :to="{ name: 'assessment-admin-user' }" class="nav-link">
-          <i class="nav-icon fas fa-tags"></i>
-          <p>User</p>
+          <i  class="nav-icon fas fa-tags text-light"></i>
+          <p class="text-white">Guidebook</p>
         </nuxt-link>
       </li>
+
+      <!-- Input Dokumen Kelengkapan -->
+      <!-- <div class="coba">
+      <li class="nav-item dropdown pb-2">
+        <a id="dropdownSubMenu1" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="nav-link dropdown-toggle">
+          <p class="text-light">Input Dokumen Kelengkapan</p>
+        </a>
+        <ul aria-labelledby="dropdownSubMenu1" class="dropdown-menu" style="background-color: white;">
+          <li><a class="dropdown-item" style="cursor: pointer;"> Data Aplikasi</a></li>
+          <li><a class="dropdown-item" style="cursor: pointer;"> Dokumen Proses Assesment</a></li>
+          <li><a class="dropdown-item" style="cursor: pointer;"> Dokumen Proses Pengajuan <br/> Hosting dan Sub-Domain </a></li>
+        </ul>
+      </li>
+    </div> -->
 
       <li class="nav-item" v-if="user.role === 'admin'">
-        <nuxt-link :to="{ name: 'assessment-admin-opd' }" class="nav-link">
-          <i class="nav-icon fas fa-folder"></i>
-          <p>Operator Perangkat Daerah</p>
+        <nuxt-link :to="{ name: 'assessment-admin-opd' }" class="opd nav-link">
+          <i class="nav-icon fas fa-folder text-light"></i>
+          <p class="text-white">Operator Perangkat Daerah</p>
         </nuxt-link>
       </li>
 
-      <li class="nav-item" v-if="user.role === 'opd'">
+
+      
+
+      <!-- <li class="nav-item" v-if="user.role === 'opd'">
         <nuxt-link :to="{ name: 'assessment-opd-baru' }" class="nav-link">
           <i class="nav-icon fas fa-book-open"></i>
           <p>Assessment Baru</p>
         </nuxt-link>
-      </li>
+      </li> -->
 
-      <li class="nav-item" v-if="user.role === 'opd'">
+      <!-- <li class="nav-item" v-if="user.role === 'opd'">
         <nuxt-link :to="{ name: 'assessment-opd-proses' }" class="nav-link">
           <i class="nav-icon fas fa-book-open"></i>
           <p>Assessment Proses</p>
         </nuxt-link>
-      </li>
+      </li> -->
 
-      <li class="nav-item" v-if="user.role === 'opd'">
+      <!-- <li class="nav-item" v-if="user.role === 'opd'">
         <nuxt-link :to="{ name: 'assessment-opd-selesai' }" class="nav-link">
           <i class="nav-icon fas fa-book-open"></i>
           <p>Assessment Selesai</p>
         </nuxt-link>
-      </li>
+      </li> -->
 
-      <li class="nav-item" v-if="user.role === 'assessment'">
+      <!-- <li class="nav-item" v-if="user.role === 'assessment'">
         <nuxt-link :to="{ name: 'assessment-assessor-masuk' }" class="nav-link">
           <i class="nav-icon fas fa-clone"></i>
           <p>Assessment Masuk</p>
         </nuxt-link>
-      </li>
+      </li> -->
 
-      <li class="nav-item" v-if="user.role === 'assessment'">
-        <nuxt-link
-          :to="{ name: 'assessment-assessor-proses' }"
-          class="nav-link"
-        >
+      <!-- <li class="nav-item" v-if="user.role === 'assessment'">
+        <nuxt-link :to="{ name: 'assessment-assessor-proses' }" class="nav-link"> 
           <i class="nav-icon fas fa-clone"></i>
           <p>Assessment Proses</p>
         </nuxt-link>
-      </li>
+      </li> -->
 
       <li class="nav-item" v-if="user.role === 'assessment'">
-        <nuxt-link
-          :to="{ name: 'assessment-assessor-selesai' }"
-          class="nav-link"
-        >
+        <nuxt-link :to="{ name: 'assessment-assessor-selesai' }" class="nav-link">
           <i class="nav-icon fas fa-clone"></i>
           <p>Assessment Selesai</p>
         </nuxt-link>
@@ -116,6 +141,28 @@
   <!-- /.sidebar-menu -->
 </template>
 
+
+<style>
+.dashboard:hover {
+  border-radius: 15px;
+  background-color: #F3AE35;
+}
+.coba {
+  overlay: scroll;
+  height: 100px;
+}
+.dropdown-menu {
+  font-size: 12px;
+}
+.dropdown-menu li a:hover{
+background-color: #F3AE35;
+}
+#dropdownSubMenu1 {
+  background-color: #FFFFFF1A;
+  color: black;
+}
+</style>
+
 <script>
 export default {
   computed: {
@@ -124,9 +171,9 @@ export default {
     },
   },
 
-  mounted() {
-    console.log(this.user);
-  },
+  // mounted() {
+  //   console.log(this.user);
+  // },
 };
 </script>
 
