@@ -19,6 +19,7 @@ export default {
     ],
     link: [
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
+      { rel: 'stylesheet', type:'text/css', href: 'css/bootstrap.css'},
       { rel: 'stylesheet', href: 'https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap' }
     ],
     script: [
@@ -43,6 +44,7 @@ export default {
 
   // Modules for dev and build (recommended): https://go.nuxtjs.dev/config-modules
   buildModules: [
+    '@nuxtjs/google-fonts'
   ],
 
   // Modules: https://go.nuxtjs.dev/config-modules
@@ -61,6 +63,18 @@ export default {
     'cookie-universal-nuxt',
   ],
 
+  googleFonts: {
+    families: {
+      // a simple name
+      Poppins: true,
+  
+      // a name with spaces
+      // 'Josefin+Sans': true,
+  
+      // specific font weights
+      Lato: [100, 300],
+    }
+  },
 
 
   // auth: {
