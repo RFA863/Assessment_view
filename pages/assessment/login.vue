@@ -77,7 +77,7 @@ export default {
   methods: {
     async login() {
       try {
-        const response = await this.$axios.post("/api/assessment/admin/login", {
+        const response = await this.$axios.post("/api/assessment/login", {
           email: this.user.email,
           password: this.user.password,
         });
